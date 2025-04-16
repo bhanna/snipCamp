@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnipHaus - Where Recovery Meets Luxury</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-overlay"></div>
+    <div class="header-content">
+      <h1>SnipHaus</h1>
+      <p>Where Recovery Meets Luxury</p>
+      <button class="cta">Book Your Stay</button>
+    </div>
+  </header>
+
+  <section>
+    <h2>What’s Included</h2>
+    <h3>For you during your stay</h3>
+    <div class="features features-grid-2x2">
+      <div class="feature-card image-focused">
+        <img src="images/stay.png" alt="Luxury Stay" class="feature-image" />
+        <div class="feature-info">
+          <h3>Luxury Stay</h3>
+          <p>Boutique accommodations in serene locations with top-tier comfort.</p>
+        </div>
+      </div>
+      <div class="feature-card image-focused">
+        <img src="images/cook.png" alt="Private Chef" class="feature-image" />
+        <div class="feature-info">
+          <h3>Private Chef</h3>
+          <p>Enjoy healing, delicious meals crafted by culinary professionals.</p>
+        </div>
+      </div>
+      <div class="feature-card image-focused">
+        <img src="images/canna.png" alt="Curated Cannabis" class="feature-image" />
+        <div class="feature-info">
+          <h3>Curated Cannabis</h3>
+          <p>Top-shelf products selected to enhance your recovery and chill.</p>
+        </div>
+      </div>
+      <div class="feature-card image-focused image-top">
+        <img src="images/media.png" alt="All the Entertainment" class="feature-image" />
+        <div class="feature-info">
+          <h3>Entertainment</h3>
+          <p>Sports, movies, video games, and more—everything you need to relax and have fun.</p>
+        </div>
+      </div>
+    </div>
+    <h3>For your family while you're gone</h3>
+    <div class="features features-grid-2x2">
+<div class="feature-card image-focused">
+    <img src="images/child.png" alt="Childcare" class="feature-image" />
+    <div class="feature-info">
+      <h3>Childcare</h3>
+      <p>Professional childcare to keep your kids happy and cared for while you're away.</p>
+    </div>
+  </div>
+  <div class="feature-card image-focused">
+    <img src="images/clean.png" alt="Cleaning" class="feature-image" />
+    <div class="feature-info">
+      <h3>Cleaning</h3>
+      <p>Home cleaning services to ensure you return to a spotless house.</p>
+    </div>
+  </div>
+  <div class="feature-card image-focused">
+    <img src="images/meal.png" alt="Pre-made Meals Delivered" class="feature-image" />
+    <div class="feature-info">
+      <h3>Meals for your Family</h3>
+      <p>Nutritious, chef-prepared meals delivered to your family so they’re always taken care of while you’re away.</p>
+    </div>
+  </div>
+  <div class="feature-card image-focused">
+    <img src="images/massage.png" alt="Childcare" class="feature-image" />
+    <div class="feature-info">
+      <h3>Massage for your wife</h3>
+      <p>Treat your wife to a relaxing massage while you rest and recover.</p>
+    </div>
+  </div>
+</div>
+  </section>
+
+  <section class="how-it-works-section">
+    <h2>How It Works</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-badge">1</div>
+        <div class="how-step-content">
+          <h3>Book your procedure</h3>
+          <p>Schedule your medical procedure with your provider.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-badge">2</div>
+        <div class="how-step-content">
+          <h3>Choose your SnipCamp package & dates</h3>
+          <p>Select the perfect package and dates for your recovery stay.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-badge">3</div>
+        <div class="how-step-content">
+          <h3>We handle the rest</h3>
+          <p>From food to family, we take care of everything so you can relax and recover.</p>
+        </div>
+      </div>
+    </div>
+    <a class="button" href="#">See Packages</a>
+  </section>
+
+  <section>
+    <h2>Hear From Guests</h2>
+    <div class="testimonial-rotator">
+      <button class="testimonial-arrow testimonial-prev" aria-label="Previous testimonial">&#8592;</button>
+      <div class="testimonial-cards-wrapper">
+        <div class="feature-card testimonial-card" data-testimonial="0">
+          <p class="testimonial-quote">
+            “My wife booked it for me — it was the best decision we made all year. The house was clean, the kids were happy, and I came home healed and relaxed.”
+          </p>
+          <div class="testimonial-author">– Matt R., father of 3</div>
+        </div>
+        <div class="feature-card testimonial-card" data-testimonial="1" style="display:none;">
+          <p class="testimonial-quote">
+            “SnipHaus made my recovery feel like a vacation. The meals were incredible and I didn’t have to worry about a thing at home.”
+          </p>
+          <div class="testimonial-author">– Alex S., entrepreneur</div>
+        </div>
+        <div class="feature-card testimonial-card" data-testimonial="2" style="display:none;">
+          <p class="testimonial-quote">
+            “I was able to truly relax knowing my family was taken care of. The staff went above and beyond. Highly recommend!”
+          </p>
+          <div class="testimonial-author">– Jordan P., teacher</div>
+        </div>
+      </div>
+      <button class="testimonial-arrow testimonial-next" aria-label="Next testimonial">&#8594;</button>
+    </div>
+    <script>
+      (function() {
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const prevBtn = document.querySelector('.testimonial-prev');
+        const nextBtn = document.querySelector('.testimonial-next');
+        let current = 0;
+        function showTestimonial(idx) {
+          testimonials.forEach((el, i) => {
+            el.style.display = (i === idx) ? '' : 'none';
+          });
+        }
+        prevBtn.addEventListener('click', () => {
+          current = (current - 1 + testimonials.length) % testimonials.length;
+          showTestimonial(current);
+        });
+        nextBtn.addEventListener('click', () => {
+          current = (current + 1) % testimonials.length;
+          showTestimonial(current);
+        });
+        // Optional: auto-rotate every 7 seconds
+        setInterval(() => {
+          current = (current + 1) % testimonials.length;
+          showTestimonial(current);
+        }, 7000);
+        // Initialize
+        showTestimonial(current);
+      })();
+    </script>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SnipHaus. All rights reserved. | Follow us @SnipHaus</p>
+  </footer>
+</body>
+</html>
