@@ -36,7 +36,7 @@
     </div>
     <div class="flex-1 flex justify-center min-w-0"></div>
     <div class="flex items-center min-w-0">
-      <button class="bg-[#1a1a1a] text-white px-6 py-3 rounded-lg text-base font-medium hover:bg-[#333] transition-colors">Book Your Stay</button>
+      <button onclick="document.getElementById('request-a-consult').scrollIntoView({behavior: 'smooth'});" class="bg-[#1a1a1a] text-white px-6 py-3 rounded-lg text-base font-medium hover:bg-[#333] transition-colors">Request a Consult</button>
     </div>
   </div>
   <!-- Hero Image Section (no overlayed text/button) -->
@@ -260,9 +260,174 @@
       })();
     </script>
   </section>
+  <section id="request-a-consult" class="bg-gradient-to-br from-[#f7fafc] to-[#e3e9f3] rounded-[18px] shadow-lg my-12 px-8 py-10 max-w-[1000px] mx-auto">
+    <h2 class="text-4xl mb-8 text-center">Request a Consult</h2>
+    <p class="text-center mb-8">A SnipHous concierge will be in touch shortly.</p>
+    <form  class="max-w-md mx-auto">
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700 text-xl mb-2">Name:</label>
+            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 text-xl mb-2">Email:</label>
+            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label for="phone" class="block text-gray-700 text-xl mb-2">Phone:</label>
+          <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="surgery_date" class="block text-gray-700 text-xl mb-2">Surgery Date:</label>
+            <input type="date" id="surgery_date" name="surgery_date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="city" class="block text-gray-700 text-xl mb-2">City:</label>
+            <input type="text" id="city" name="city" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-6">
+            <label for="state" class="block text-gray-700 text-xl mb-2">State:</label>
+            <input type="text" id="state" name="state" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-center">
+            <button onclick="document.getElementById('book-your-stay').scrollIntoView({behavior: 'smooth'});" class="bg-[#1a1a1a] hover:bg-[#333] text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                Request a Consult
+            </button>
+        </div>
+    </form>
+</section>
 
   <footer class="text-center py-8 px-8 bg-[#eaeaea] text-sm">
     <p>&copy; 2025 SnipHaus. All rights reserved. | Follow us @SnipHaus</p>
   </footer>
+  <script>
+    const form = document.querySelector('#request-a-consult form');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault(); // Prevent default form submission
+
+      const originalButtonText = submitButton.textContent;
+      submitButton.textContent = 'Submitting...';
+      submitButton.disabled = true;
+
+      const formData = new FormData(form);
+      const data = {
+        'name': formData.get('name'),
+        'email': formData.get('email'),
+        'phone': formData.get('phone'),
+        'surgery_date': formData.get('surgery_date'),
+        'city': formData.get('city'),
+        'state': formData.get('state')
+        // Ensure these keys ('name', 'email', etc.) exactly match your Baserow column names (case-sensitive)
+        // If your Baserow columns have different names, update them here.
+      };
+
+      // --- Replace placeholders below with your actual Baserow details ---
+      const baserowApiUrl = 'https://api.baserow.io/api/database/rows/table/YOUR_TABLE_ID/?user_field_names=true'; // Replace YOUR_TABLE_ID
+      const baserowToken = 'YOUR_BASEROW_TOKEN'; // Replace YOUR_BASEROW_TOKEN
+      // --- End of placeholder section ---
+
+
+      // Basic validation (optional but recommended)
+      if (!data.name || !data.email || !data.phone || !data.surgery_date || !data.city || !data.state) {
+          alert('Please fill out all required fields.');
+          submitButton.textContent = originalButtonText;
+          submitButton.disabled = false;
+          return; // Stop submission if fields are missing
+      }
+
+
+      try {
+        const response = await fetch(baserowApiUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Token ${baserowToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          console.log('Success:', result);
+          alert('Thank you for your request! We will be in touch shortly.');
+          form.reset(); // Clear the form
+        } else {
+          // Attempt to get error details from Baserow response
+          let errorDetail = `HTTP error! Status: ${response.status}`;
+          try {
+            const errorData = await response.json();
+            // Baserow often puts detailed errors in errorData.detail or specific fields like errorData.error
+            errorDetail = errorData.detail || errorData.error || JSON.stringify(errorData);
+          } catch (e) {
+            // If response is not JSON or parsing fails
+            errorDetail += ` - ${response.statusText}`;
+          }
+          console.error('Submission error:', errorDetail);
+          // Provide a more user-friendly error message
+          alert(`Submission failed. Please check your details and try again. If the problem persists, contact support. (Error: ${errorDetail})`);
+        }
+      } catch (error) {
+        console.error('Network error or other issue:', error);
+        alert('An error occurred during submission. Please check your internet connection and try again.');
+      } finally {
+         submitButton.textContent = originalButtonText;
+         submitButton.disabled = false;
+      }
+    });
+  </script>
 </body>
+<script>
+  document.querySelectorAll('button:contains("Request a Consult")').forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('request-a-consult').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Testimonial Slider Logic (Keep existing script)
+  (function() {
+    const testimonials = document.querySelectorAll('[data-testimonial]');
+    const prevBtn = document.querySelector('button[aria-label="Previous testimonial"]');
+    const nextBtn = document.querySelector('button[aria-label="Next testimonial"]');
+    let current = 0;
+
+    if (testimonials.length > 0 && prevBtn && nextBtn) {
+        function showTestimonial(idx) {
+            testimonials.forEach((el, i) => {
+                el.style.display = (i === idx) ? '' : 'none';
+                el.classList.toggle('hidden', i !== idx); // Use hidden class
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            current = (current - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(current);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            current = (current + 1) % testimonials.length;
+            showTestimonial(current);
+        });
+
+        // Optional: auto-rotate every 7 seconds
+        // Consider clearing interval if user interacts
+        let autoRotate = setInterval(() => {
+            current = (current + 1) % testimonials.length;
+            showTestimonial(current);
+        }, 7000);
+
+        // Stop auto-rotate on interaction
+        [prevBtn, nextBtn].forEach(btn => {
+            btn.addEventListener('click', () => clearInterval(autoRotate));
+        });
+
+        // Initialize
+        showTestimonial(current);
+    } else {
+        console.warn("Testimonial elements not found, slider disabled.");
+    }
+  })();
+
+</script>
 </html>
