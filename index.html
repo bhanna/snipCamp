@@ -5,137 +5,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SnipHaus - Where Recovery Meets Luxury</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'inter': ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-  <header>
-    <div class="header-overlay"></div>
-    <div class="header-content">
-      <h1>SnipHaus</h1>
-      <p>Where Vasectomy Recovery Meets Luxury</p>
-      <button class="cta">Book Your Stay</button>
+<body class="m-0 font-inter bg-[#f5f5f5] text-[#1a1a1a]">
+  <header class="relative h-[60vh] flex items-start justify-center text-center text-white pt-[10vh] overflow-hidden bg-center bg-cover" style="background-image: url('images/sniphaus.png')">
+    <div class="absolute inset-0 bg-black/55"></div>
+    <div class="relative z-10 w-full flex flex-col items-center justify-start">
+      <h1 class="text-5xl m-0">SnipHaus</h1>
+      <p class="text-xl mt-4">Where Vasectomy Recovery Meets Luxury</p>
+      <button class="bg-[#1a1a1a] text-white px-8 py-4 rounded-lg text-base mt-8 cursor-pointer">Book Your Stay</button>
     </div>
   </header>
 
-  <section>
-    <h2>What’s Included</h2>
-    <h3>For you during your stay</h3>
-    <div class="features features-grid-2x2">
-      <div class="feature-card image-focused">
-        <img src="images/stay.png" alt="Luxury Stay" class="feature-image" />
-        <div class="feature-info">
-          <h3>Luxury Stay</h3>
-          <p>Boutique accommodations in serene locations with top-tier comfort.</p>
+  <section class="py-16 px-8 max-w-[1000px] mx-auto">
+    <h2 class="text-4xl mb-6 text-center">What's Included</h2>
+    <h3 class="text-2xl font-bold text-center tracking-wide mb-8">For you during your stay</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-center min-h-[350px]">
+        <img src="images/stay.png" alt="Luxury Stay" class="w-full h-[220px] object-cover block" />
+        <div class="w-full bg-white/90 p-5 text-center flex-1 flex flex-col justify-center">
+          <h3 class="text-xl font-semibold mb-2">Luxury Stay</h3>
+          <p class="text-base text-[#444] m-0">Boutique accommodations in serene locations with top-tier comfort.</p>
         </div>
       </div>
-      <div class="feature-card image-focused">
-        <img src="images/cook.png" alt="Private Chef" class="feature-image" />
-        <div class="feature-info">
-          <h3>Private Chef</h3>
-          <p>Enjoy healing, delicious meals crafted by culinary professionals.</p>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-center min-h-[350px]">
+        <img src="images/cook.png" alt="Private Chef" class="w-full h-[220px] object-cover block" />
+        <div class="w-full bg-white/90 p-5 text-center flex-1 flex flex-col justify-center">
+          <h3 class="text-xl font-semibold mb-2">Private Chef</h3>
+          <p class="text-base text-[#444] m-0">Enjoy healing, delicious meals crafted by culinary professionals.</p>
         </div>
       </div>
-      <div class="feature-card image-focused">
-        <img src="images/canna.png" alt="Curated Cannabis" class="feature-image" />
-        <div class="feature-info">
-          <h3>Curated Cannabis</h3>
-          <p>Top-shelf products selected to enhance your recovery and chill.</p>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-center min-h-[350px]">
+        <img src="images/canna.png" alt="Curated Cannabis" class="w-full h-[220px] object-cover block" />
+        <div class="w-full bg-white/90 p-5 text-center flex-1 flex flex-col justify-center">
+          <h3 class="text-xl font-semibold mb-2">Curated Cannabis</h3>
+          <p class="text-base text-[#444] m-0">Top-shelf products selected to enhance your recovery and chill.</p>
         </div>
       </div>
-      <div class="feature-card image-focused image-top">
-        <img src="images/media.png" alt="All the Entertainment" class="feature-image" />
-        <div class="feature-info">
-          <h3>Entertainment</h3>
-          <p>Sports, movies, video games, and more—everything you need to relax and have fun.</p>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-start min-h-[350px]">
+        <img src="images/media.png" alt="All the Entertainment" class="w-full h-[220px] object-cover block" />
+        <div class="w-full bg-white/90 p-5 text-center flex-1 flex flex-col justify-center">
+          <h3 class="text-xl font-semibold mb-2">Entertainment</h3>
+          <p class="text-base text-[#444] m-0">Sports, movies, video games, and more—everything you need to relax and have fun.</p>
         </div>
       </div>
     </div>
-    <h3>For your family while you're gone</h3>
-    <div class="features features-grid-2x2">
-<div class="feature-card image-focused">
-    <img src="images/child.png" alt="Childcare" class="feature-image" />
-    <div class="feature-info">
-      <h3>Childcare</h3>
-      <p>Professional childcare to keep your kids happy and cared for while you're away.</p>
+    <h3 class="text-2xl font-bold text-center tracking-wide mt-12 mb-8">For your family while you're gone</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-center min-h-[350px]">
+        <img src="images/child.png" alt="Childcare" class="w-full h-[220px] object-cover block" />
+        <div class="w-full bg-white/90 p-5 text-center flex-1 flex flex-col justify-center">
+          <h3 class="text-xl font-semibold mb-2">Childcare</h3>
+          <p class="text-base text-[#444] m-0">Professional childcare to keep your kids happy and cared for while you're away.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-center min-h-[350px]">
+        <img src="images/clean.png" alt="Cleaning" class="w-full h-[220px] object-cover block" />
+        <div class="w-full bg-white/90 p-5 text-center flex-1 flex flex-col justify-center">
+          <h3 class="text-xl font-semibold mb-2">Cleaning</h3>
+          <p class="text-base text-[#444] m-0">Home cleaning services to ensure you return to a spotless house.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-center min-h-[350px]">
+        <img src="images/meal.png" alt="Pre-made Meals Delivered" class="w-full h-[220px] object-cover block" />
+        <div class="w-full bg-white/90 p-5 text-center flex-1 flex flex-col justify-center">
+          <h3 class="text-xl font-semibold mb-2">Meals for your Family</h3>
+          <p class="text-base text-[#444] m-0">Nutritious, chef-prepared meals delivered to your family so they're always taken care of while you're away.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-center min-h-[350px]">
+        <img src="images/massage.png" alt="Massage" class="w-full h-[220px] object-cover block" />
+        <div class="w-full bg-white/90 p-5 text-center flex-1 flex flex-col justify-center">
+          <h3 class="text-xl font-semibold mb-2">Massage for your wife</h3>
+          <p class="text-base text-[#444] m-0">Treat your wife to a relaxing massage while you rest and recover.</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="feature-card image-focused">
-    <img src="images/clean.png" alt="Cleaning" class="feature-image" />
-    <div class="feature-info">
-      <h3>Cleaning</h3>
-      <p>Home cleaning services to ensure you return to a spotless house.</p>
-    </div>
-  </div>
-  <div class="feature-card image-focused">
-    <img src="images/meal.png" alt="Pre-made Meals Delivered" class="feature-image" />
-    <div class="feature-info">
-      <h3>Meals for your Family</h3>
-      <p>Nutritious, chef-prepared meals delivered to your family so they’re always taken care of while you’re away.</p>
-    </div>
-  </div>
-  <div class="feature-card image-focused">
-    <img src="images/massage.png" alt="Childcare" class="feature-image" />
-    <div class="feature-info">
-      <h3>Massage for your wife</h3>
-      <p>Treat your wife to a relaxing massage while you rest and recover.</p>
-    </div>
-  </div>
-</div>
   </section>
 
-  <section class="how-it-works-section">
-    <h2>How It Works</h2>
-    <div class="how-steps">
-      <div class="how-step">
-        <div class="how-step-badge">1</div>
-        <div class="how-step-content">
-          <h3>Book your procedure</h3>
-          <p>Schedule your medical procedure with your provider.</p>
+  <section class="bg-gradient-to-br from-[#f7fafc] to-[#e3e9f3] rounded-[18px] shadow-lg my-12 px-8 py-10 max-w-[1000px] mx-auto">
+    <h2 class="text-4xl mb-8 text-center">How It Works</h2>
+    <div class="flex flex-wrap justify-between gap-8 mb-8">
+      <div class="bg-white rounded-xl shadow-md flex-1 min-w-[220px] max-w-[320px] flex flex-col items-center p-8 relative mx-auto transition-all hover:translate-y-[-6px] hover:scale-[1.03] hover:shadow-xl">
+        <div class="bg-[#1a1a1a] text-white font-extrabold text-2xl w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-md border-3 border-[#e3e9f3]">1</div>
+        <div class="text-center">
+          <h3 class="text-lg font-bold mb-2">Book your procedure</h3>
+          <p class="text-[#444]">Schedule your medical procedure with your provider.</p>
         </div>
       </div>
-      <div class="how-step">
-        <div class="how-step-badge">2</div>
-        <div class="how-step-content">
-          <h3>Choose your SnipCamp package & dates</h3>
-          <p>Select the perfect package and dates for your recovery stay.</p>
+      <div class="bg-white rounded-xl shadow-md flex-1 min-w-[220px] max-w-[320px] flex flex-col items-center p-8 relative mx-auto transition-all hover:translate-y-[-6px] hover:scale-[1.03] hover:shadow-xl">
+        <div class="bg-[#1a1a1a] text-white font-extrabold text-2xl w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-md border-3 border-[#e3e9f3]">2</div>
+        <div class="text-center">
+          <h3 class="text-lg font-bold mb-2">Choose your SnipCamp package & dates</h3>
+          <p class="text-[#444]">Select the perfect package and dates for your recovery stay.</p>
         </div>
       </div>
-      <div class="how-step">
-        <div class="how-step-badge">3</div>
-        <div class="how-step-content">
-          <h3>We handle the rest</h3>
-          <p>From food to family, we take care of everything so you can relax and recover.</p>
+      <div class="bg-white rounded-xl shadow-md flex-1 min-w-[220px] max-w-[320px] flex flex-col items-center p-8 relative mx-auto transition-all hover:translate-y-[-6px] hover:scale-[1.03] hover:shadow-xl">
+        <div class="bg-[#1a1a1a] text-white font-extrabold text-2xl w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-md border-3 border-[#e3e9f3]">3</div>
+        <div class="text-center">
+          <h3 class="text-lg font-bold mb-2">We handle the rest</h3>
+          <p class="text-[#444]">From food to family, we take care of everything so you can relax and recover.</p>
         </div>
       </div>
     </div>
-    <a class="button" href="#">See Packages</a>
+    <a href="#" class="bg-[#222] text-white px-6 py-3 rounded-md inline-block mt-4 hover:bg-[#333] transition-colors">See Packages</a>
   </section>
 
-  <section>
-    <h2>Hear From Guests</h2>
-    <div class="testimonial-rotator">
-      <button class="testimonial-arrow testimonial-prev" aria-label="Previous testimonial">&#8592;</button>
-      <div class="testimonial-cards-wrapper">
-        <div class="feature-card testimonial-card" data-testimonial="0">
-          <p class="testimonial-quote">
-            “My wife booked it for me — it was the best decision we made all year. The house was clean, the kids were happy, and I came home healed and relaxed.”
+  <section class="bg-gradient-to-br from-[#f7fafc] to-[#e3e9f3] rounded-[18px] shadow-lg my-12 px-8 py-10 max-w-[1000px] mx-auto">
+    <div class="flex flex-wrap gap-8 max-w-[1200px] mx-auto">
+      <!-- Left Column -->
+      <div class="flex-1 basis-[40%] relative">
+        <p class="text-sm tracking-wide mb-4">• PLANNING YOUR STAY</p>
+        <h1 class="text-4xl font-extrabold leading-tight">
+          A FEW<br>
+          GOOD<br>
+          THINGS<br>
+          TO KNOW<br>
+        </h1>
+        <img src="images/SNIPHAUS-LOGO.png" alt="Decorative" class="absolute bottom-0 left-0 max-w-[70%] opacity-90 pointer-events-none z-0">
+      </div>
+  
+      <!-- Right Column -->
+      <div class="flex-1 basis-[55%] flex flex-col justify-center gap-8">
+
+        <!-- 1. Full content block -->
+        <a href="/articles/planning-your-stay" class="block mb-4 p-4 rounded-lg transition-colors duration-200 hover:bg-[#f0f2f6]">
+          <h3 class="text-xl font-bold mb-3"><span class="text-[#666] mr-2">.01</span>A Guide for Planning Your SnipHous Stay</h3>
+          <p class="text-[#444] mb-4">After a vasectomy, most people are okay to resume light activities within a few days. If you have small children (who often require lifting, chasing, and little physical boundaries) at home, giving yourself some extra buffer is a good move.</p>
+          <p class="text-[#444]">Here is how long you will need to recover.</p>
+        </a>
+
+        <!-- 2. Filler teaser -->
+        <a href="/articles/post-op-care-tips" class="block mb-4 p-4 rounded-lg transition-colors duration-200 hover:bg-[#f0f2f6]">
+          <h3 class="text-xl font-bold mb-3"><span class="text-[#666] mr-2">.02</span>Post-Op Care Tips You’ll Actually Use </h3>
+          <p class="text-[#444]">What to expect after the procedure, what to avoid, and how to make recovery smooth and comfortable.</p>
+        </a>
+
+        <!-- 3. Filler teaser -->
+        <a href="/articles/kid-free-recovery-week" class="block mb-4 p-4 rounded-lg transition-colors duration-200 hover:bg-[#f0f2f6]">
+          <h3 class="text-xl font-bold mb-3"><span class="text-[#666] mr-2">.03</span>How to Plan a Kid-Free Recovery Week </h3>
+          <p class="text-[#444]">Managing recovery with toddlers or high-energy kids at home? Here’s how to give yourself the break you deserve.</p>
+        </a>
+
+        <!-- 4. Filler teaser -->
+        <a href="/articles/packing-list" class="block p-4 rounded-lg transition-colors duration-200 hover:bg-[#f0f2f6]">
+          <h3 class="text-xl font-bold mb-3"><span class="text-[#666] mr-2">.04</span>What to Pack for Your SnipHous Stay </h3>
+          <p class="text-[#444]">A simple list of essentials (and a few luxuries) to make sure you're stocked for rest, snacks, and streaming.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-16 px-8 max-w-[1000px] mx-auto">
+    <h2 class="text-4xl mb-8 text-center">Hear From Guests</h2>
+    <div class="flex items-center justify-center gap-6 max-w-[700px] mx-auto relative">
+      <button class="bg-[#1a1a1a] text-white border-none rounded-full w-11 h-11 text-2xl flex items-center justify-center shadow-md cursor-pointer transition-all hover:bg-[#444] hover:scale-110 hover:shadow-lg focus:outline-none z-10" aria-label="Previous testimonial">&#8592;</button>
+      <div class="flex-1 flex flex-col items-center">
+        <div class="bg-white rounded-xl shadow-md p-8 text-center italic mx-auto max-w-[600px]" data-testimonial="0">
+          <p class="text-lg mb-4">
+            "My wife booked it for me — it was the best decision we made all year. The house was clean, the kids were happy, and I came home healed and relaxed."
           </p>
-          <div class="testimonial-author">– Matt R., father of 3</div>
+          <div class="font-semibold text-[#888] not-italic mt-2">– Matt R., father of 3</div>
         </div>
-        <div class="feature-card testimonial-card" data-testimonial="1" style="display:none;">
-          <p class="testimonial-quote">
-            “SnipHaus made my recovery feel like a vacation. The meals were incredible and I didn’t have to worry about a thing at home.”
+        <div class="bg-white rounded-xl shadow-md p-8 text-center italic mx-auto max-w-[600px] hidden" data-testimonial="1">
+          <p class="text-lg mb-4">
+            "SnipHaus made my recovery feel like a vacation. The meals were incredible and I didn't have to worry about a thing at home."
           </p>
-          <div class="testimonial-author">– Alex S., entrepreneur</div>
+          <div class="font-semibold text-[#888] not-italic mt-2">– Alex S., entrepreneur</div>
         </div>
-        <div class="feature-card testimonial-card" data-testimonial="2" style="display:none;">
-          <p class="testimonial-quote">
-            “I was able to truly relax knowing my family was taken care of. The staff went above and beyond. Highly recommend!”
+        <div class="bg-white rounded-xl shadow-md p-8 text-center italic mx-auto max-w-[600px] hidden" data-testimonial="2">
+          <p class="text-lg mb-4">
+            "I was able to truly relax knowing my family was taken care of. The staff went above and beyond. Highly recommend!"
           </p>
-          <div class="testimonial-author">– Jordan P., teacher</div>
+          <div class="font-semibold text-[#888] not-italic mt-2">– Jordan P., teacher</div>
         </div>
       </div>
-      <button class="testimonial-arrow testimonial-next" aria-label="Next testimonial">&#8594;</button>
+      <button class="bg-[#1a1a1a] text-white border-none rounded-full w-11 h-11 text-2xl flex items-center justify-center shadow-md cursor-pointer transition-all hover:bg-[#444] hover:scale-110 hover:shadow-lg focus:outline-none z-10" aria-label="Next testimonial">&#8594;</button>
     </div>
     <script>
       (function() {
@@ -167,7 +223,7 @@
     </script>
   </section>
 
-  <footer>
+  <footer class="text-center py-8 px-8 bg-[#eaeaea] text-sm">
     <p>&copy; 2025 SnipHaus. All rights reserved. | Follow us @SnipHaus</p>
   </footer>
 </body>

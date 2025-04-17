@@ -4,6 +4,109 @@ body {
   background-color: #f5f5f5;
   color: #1a1a1a;
 }
+
+/* Planning Guide Section Styles */
+.planning-guide {
+  background: linear-gradient(120deg, #f7fafc 60%, #e3e9f3 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(30,40,80,0.07);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 3rem 2rem 2.5rem 2rem;
+}
+
+.planning-guide h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.planning-guide h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.planning-guide p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.planning-guide ul {
+  margin: 0 0 1.5rem 1.5rem;
+  padding: 0;
+  list-style: disc inside;
+}
+
+.planning-guide li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+@media (max-width: 700px) {
+  .planning-guide {
+    padding: 2rem 1rem 1.5rem 1rem;
+  }
+  .planning-guide h2 {
+    font-size: 1.4rem;
+  }
+  .planning-guide h3 {
+    font-size: 1.1rem;
+  }
+}
+
+.planning-your-stay {
+  background: linear-gradient(120deg, #f7fafc 60%, #e3e9f3 100%);
+  padding: 4rem 2rem;
+  border-radius: 18px;
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stay-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stay-left {
+  flex: 1 1 40%;
+  position: relative;
+}
+
+.stay-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: pre-line;
+  color: #1a1a1a;
+}
+
+.stay-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 70%;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stay-right {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
 header {
   background: url('images/sniphaus.png') no-repeat center center/cover;
   height: 60vh;
